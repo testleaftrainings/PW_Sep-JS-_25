@@ -1,0 +1,41 @@
+Enter the username
+async/await / Promises
+----------->
+<-----------
+Enter the password
+Click the Login 
+------------->
+<------------
+
+hot code - frequently used codes 
+
+Data type - value a variable can hold and what operations can be performed on it
+JS - dynamically typed
+
+1. Primitive - immutable
+  - number
+  - string 
+  - boolean
+  - undefined
+  - null
+  - bigInt
+  - symbol
+2. Non-primitive - mutable
+  - object
+  - array
+  - function
+
+0001157678898 = 11576
+
+Types of variable declaration
+1. var
+2. let
+3. const
+
+var -> let
+1. Reassignment
+2. Scoping - the level of accessibility of the variable
+      # Global scoping
+      # Function scoping
+      # Block level scoping
+3. Hoisting
