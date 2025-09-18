@@ -1,0 +1,123 @@
+var - function/global scope
+let - block scope
+const - block scope
+
+let, const, var - global variable
+
+let, const, var - declare variable inside a function
+let, const, var - declare variable inside a block
+
+You need to observe - how these variables behave when you use var & let/const
+
+//Internal process - Hoisting - moved the variable declaration to the top 
+var profileName;
+console.log(profileName);
+
+profileName = "Deepshikha";
+console.log(profileName);
+
+let username = "democsr";
+log(username)           //democsr
+
+let username;       //Hoisted - preparation phase
+username = "democsr"           // execution phase
+log(username)     //democsr
+
+log(username)
+let username = "democsr"
+log(username)
+
+1. preparation phase
+let username
+2. execution phase
+console.log(username)    // Temporal dead zone //Reference Error - before initialization
+
+var username = "democsr";
+log(username)           //democsr
+
+console.log(username);
+var username = "democsr";
+console.log(username);
+
+1. preparation phase
+var username;
+var password
+function enterUsername()
+2. execution phase
+console.log(username);    //undefined
+var username = "democsr";  //undefined -> reassigned -> democsr
+console.log(username);   //democsr
+var password = 'crmsfa'
+function enterUsername() {
+}
+
+
+const password = 'crmsfa';
+
+1. const password
+
+10/5 = 2
+10%5 = 0 
+
+Assignment Operator;
+let a = 10;
+a+=5;
+a = a+5
+log(a)
+
+Comparison Operators
+== , ===
+== - Non-strict equality
+Compares only the values and not the data type
+=== -> Strict equality
+1. Compare the data type
+2. Compare the values
+
+Logical Operators
+&& AND - true if both are true
+|| OR - true if at least one is true
+! NOT - reverses the boolean
+
+let isLoggedIn = true;
+let isAdmin = false;
+log(isLoggedIn && isAdmin) -> false
+
+Increment Operator - ++ - increases by 1
+Decrement Operator -> -- -> decreases by 1
+
+Conditional Statements
+ - perform different actions based on different conditions
+
+ Types
+ 1. if Statement
+ 2. if else
+ 3. if else if else
+ 4. switch Statement
+ 5. ternary Operator
+
+ if Statement
+ if(condition) {
+    //Code to execute
+ }
+
+ if(false) {
+    log("Keep running")
+ }
+
+ if else
+
+ if(condition) {
+  //code to execute if the condition is true
+ } else {
+    //Code to execute if the condition is false
+ }
+
+ if (condition) {
+    ocde to execute if condition 1 is true
+ } else if {
+    code to execute if condition 2 is true
+ } else {
+    code ro execute if both conditions 1 and 2 fail
+ }
+
+ num = 0
