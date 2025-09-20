@@ -1,0 +1,54 @@
+Syntax
+day = 3
+switch(expression) {
+    case value1:
+    //code 
+    break;
+    case value2:
+    //code
+    break;
+    case value3:
+
+    break;
+
+    default:
+    //code to run if no cases match
+}
+
+for loop
+for(initialization; condition; increment/decrement) {
+    //Code
+}
+
+for(i=1; i<=5; i++) {
+    log("the value is": + i)
+}
+
+Step1: Initalizing the variable
+Step2: Checking the condition
+Step3: true --> execute the code
+Step4: Post increment
+Step5: i = 2
+Step2: 2<=5
+
+while loop
+Syntax
+while(condition) {
+    //Code
+}
+
+do while - run the code at least once
+checks the condition
+
+do {
+   print all the items in the page
+} while (next button is enabled)
+
+
+while(next button is enabled) {
+    prints the items
+} 
+
+str1 = Hello
+str2 = Hello
+
