@@ -1,0 +1,109 @@
+let score = 92
+
+switch(score)
+    case (>90 && <=100) --> true === 92
+
+
+
+    default:
+    Invalid input
+
+let score = 100
+switch(true)
+    case (score>90)
+    log(A+)
+    return/break;
+    case(score >80)
+
+    Playwright
+    Length always starts from 1
+    Index count starts from 0
+ 
+    Index       Length
+    P - 0       1
+    l - 1       2
+    a - 2       3
+    y - 3       4
+    w - 4       5
+    r - 5       6
+    i - 6       7
+    g - 7       8
+    h - 8       9
+    t - 9       10
+
+    companyName = "Testleaf"
+    O/p - "faeltseT"
+
+    1. split("") --> [T,e,s,t,l,e,a,f]
+    2. for 
+    3. string reversed = ""
+    4. return
+    5. Print the reversed value
+
+Function
+1. Function declaration / named function
+function login(username, password) {
+    return username;
+}
+
+login();
+
+2. Function Expression
+let test = function login (username, password) {
+}
+test("","")
+
+3. Arrow function
+let test = (a,b) => a*b;
+
+test(5,2)
+
+let test = () => {
+
+} 
+
+4. Anonymous Function - function without a name
+function()
+
+let test = () => {
+
+}
+
+Callback function
+
+function homePage(username){
+    log("Hi" + username)
+}
+
+function login(callback) {
+    callback("Shiva Priya") //func call
+}
+
+login(homePage) //func call
+
+JavaScript - single threaded and non blocking IO
+
+function d()
+function c(function d)
+function b(function c)
+function a(function b)
+a()
+
+callback hell
+
+
+
+
+function {
+
+}(); IIFE - Immediately Invoked Function Expression
+
+
+slice() - takes a start index and an optional end index
+          supports negative indices
+          can use negative index to count from the end of the string
+
+substring() - takes a start index and an optional end index
+            doesn't support negative indices
+            treats the negative index as 0
+            swapping can be done (start index > end index)
