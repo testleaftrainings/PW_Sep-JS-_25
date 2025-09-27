@@ -1,0 +1,183 @@
+📑 Agenda for Week3 Day1 - Get Started with Playwright
+🎯 [ Focus: Kickstart Playwright automation with hands-on basics ]
+
+📆 Date: 27 Sep [Saturday]
+
+🕝 Session Highlights
+
+Recap
+   - Key Takeaways from Week2.
+
+1. Browser, Context, and Page
+* Breaking Down the Key Concepts  
+* Real-life Use Cases in Automation  
+
+2. Code Your First Test Script
+* Hands-on Activity: Writing and Executing a Basic Script 
+
+3. Configuration file walkthrough
+* A brief learning on config file.
+
+4. Understanding the DOM
+* What is the DOM and How It Works 
+
+5. CSS Selectors  
+* Basic and Advanced CSS Selector Techniques.  
+* Hands-on Example: Using ID, Class, and Attribute Selectors.
+
+6. XPath Selectors
+* Relative vs. Absolute XPath: What's Better?  
+* Practical Use Cases with XPath Examples.  
+
+🕡 Wrap Up / Q&A
+
+📝 Keep your physical notebook and pen handy to sketch out ideas!
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+Notes :
+
+Basic requirment to test a browser application :
+Browser, Context, Page
+
+
+Definition :
+
+Browser-
+A browser is a software application that allows users to access and interact with web pages on the internet. 
+Examples include Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari. Browsers interpret HTML, CSS, and JavaScript code to render web pages visually for users.
+
+Context (Window)-
+A context in Playwright is an isolated environment within a browser instance. It allows you to create multiple independent sessions, each with its own cookies, local storage, and cache. This is useful for testing scenarios that require different user states or configurations without interference.
+
+Page -
+A page in Playwright represents a single tab or window within a browser context. It is where you interact with web content, perform actions like clicking buttons, filling forms, and navigating between pages. Each page operates independently within its context.
+
+
+Classroom activity :
+--------------------
+1. Launch a browser and load URL in chromium and firefox browser.
+
+DOM structure
+-------------
+
+DOM (Document Object Model) is a programming interface for web documents. 
+It represents the structure of a web page as a tree of objects, where each object corresponds to an element in the HTML document. 
+The DOM allows developers to manipulate the content, structure, and style of a web page dynamically using programming languages like JavaScript.
+
+DOM - Document Object Model
+
+HTML - HyperText Markup Language
+
+Basics 
+------
+Tags - instructions - enclosed within the angle brackets
+Attributes - additional information about the element - always in name/value pair
+Elements - complete structure from start tag to end tag
+Text - content within the element
+
+<html>
+<head>
+    <title> Amazon India </title>
+</head>
+<body>
+<div>
+  <span>
+    <input> 
+    </input>
+  </span>
+</div>
+
+Methods to locate an element on a web page :
+-----------------------------
+- CSS Selector
+- Xpath Selector
+- Playwright locators ( inbuilt methods)
+ 
+ CSS Selector -
+
+- CSS (Cascading Style Sheets) selectors are patterns used to select and style HTML elements on a web page. 
+- They allow you to target specific elements based on their attributes, such as 
+* ID, 
+* Class, 
+* Other attribute type, or position in the DOM (Document Object Model) hierarchy.
+
+- CSS selectors are commonly used in web development and testing to apply styles or interact with elements.
+
+
+Classroom activity :
+--------------------
+
+Salesforce login page :
+--------------------
+1. Using CSS selector to enter username
+2. Using CSS selector to enter password
+3. Using CSS selector to click on login button
+
+Username : ravindran.ramdas@testleaf.com
+Passord : RaviSalesforce#1234
+Xpath Selector -
+
+- XPath (XML Path Language) is a query language used to navigate and select nodes in an XML document.
+- In web development and testing, XPath is often used to locate elements on a web page based on their hierarchical structure and attributes.
+- XPath expressions can be absolute (starting from the root) or relative (starting from a specific  element).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Maximize Screen size in chromium : 
+--------------------------------
+
+  {
+      name: 'chromium',
+      use: { browserName:"chromium", 
+        viewport:null, // disable the deafult 1280x720
+        launchOptions:{
+          args:['--start-maximized'],
+        },
+      },
+    }, 
+
+
+
+Maximize Screen size in firefox : 
+--------------------------------
+
+     {
+      name: 'firefox',
+      use: { browserName:"firefox", 
+        viewport:{ width: 1920, height: 1080 }, // disable the deafult 1280x720
+        launchOptions:{
+          args:['--start-maximized'],
+        }
+}
+}
