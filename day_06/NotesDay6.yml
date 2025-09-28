@@ -1,0 +1,244 @@
+📑 Agenda for Week 3 Day 1: Playwright Features
+🎯 [ Focus: Mastering the features of Playwright on Locators, Dropdown & Assertions]  
+
+📆 Date: 28 May [Saturday]
+
+
+1. XPath Selectors
+* Relative vs. Absolute XPath: What's Better? 
+* Advanced relative Xpath- Axes  
+* Practical Use Cases with XPath Examples.
+
+2. Handling Dropdowns  
+* Understanding dropdown types: 'select' tags and custom dropdowns.  
+* Selecting options by value, label, or index.
+* Facebook live example. 
+
+3. Playwright's getBy Locators
+* Explore getByText, getByRole, getByLabel, and more.  
+* Accessibility-first Automation with getBy Methods.  
+* Real-time Activity: Automating a Login Form. 
+
+4. Assertions Using the 'expect' Library  
+* Commonly used assertions and their applications. 
+* Salesforce live example.
+
+5. Auto-Waiting in Playwright  
+* What is auto-waiting, and why is it essential?  
+* Differences between manual waits and auto-waiting.  
+* Examples: Handling dynamic elements without flaky tests. 
+
+
+
+
+NotesDay6 :
+-----------
+Advanced Locators in Playwright :
+--------------------------
+Parent To child   : 
+------------------
+  //form[@id='login']/p
+
+GrandParent to child Relation   :
+--------------------------------
+ (//form[@id='login']//label)
+
+Child to parent :      
+----------------
+//input[@id='username']/parent::p
+
+
+Grandchild to grandparent :
+-------------------------------
+
+//input[@id="username"]/ancestor::form
+
+Younger sibling to Elder Sibling :
+-----------------------------------
+
+//input[@id="username"]/preceding-sibling::label
+
+Elder sibling to younger sibling :
+----------------------------------
+
+//label[text()="Username"]/following-sibling::input
+
+//label[text()="Search Amazon.in"]/following-sibling::input
+
+Elder Cousin to Younger Cousin :
+--------------------------------
+
+//input[@id="username"]/following::label
+
+Younger Cousin to Elder Cousin:
+---------------------------
+
+//label[text()="Password"]/preceding::input
+
+
+
+
+Commonly used Commands :
+------------------------
+
+To create a playwright file - filename.spec.ts
+
+To run the test file - npx playwright test filename.spec.ts
+
+To open the test report - npx playwright show-report
+
+
+Default mode - headless
+
+Select options used based on priority:
+-----------------------------------------
+
+
+1. Select By Value :
+-Stable and less likely to change since the value is often connected to your backend
+
+  await page.selectOption(`#createLeadForm_dataSourceId`,{value:"LEAD_DIRECTMAIL"})
+
+2. Select By Label :
+Tend to change due to business requirements / geography
+Example travel name of places in your website
+
+
+
+3. Select BY Index :
+When ever there is not change in the order of your dropdown can go for select by index 
+
+Non-select tags
+---------------
+1. Locate your dropdown and use click()/ enter the value
+2. locate the particular option from the dropdownlist - clickit
+
+Assertions :
+-----------
+Use expect() library for assertions
+
+expect library meaning - to expect something
+
+5 types of Assertions in Playwright:
+--------------------------------------
+
+1. Generic Assertion.
+
+Assertions on variables or values, not directly tied to UI elements.
+
+- toHaveValue() - It checks the value attribute/property of the element and Strict equality (must match exactly).
+- toHaveText() - It checks the full text content of the element and Strict equality by default
+- toContainText() - Here it checks for partial match (substring) rather than strict equality.
+
+2. Locator Assertion.
+Assertions performed on UI elements indentified using locators
+
+- toBeVisible()- checks if the element is visible on the page.
+- toBeEnabled()- checks if the element is enabled and can be interacted with.
+- toBeEditable()- checks if the element is editable, such as input fields.
+
+3. Page Assertion.
+
+Assertions made on the page object , such as URL and title.
+
+toHaveURL(url) - checks if the current page URL matches the expected URL.
+toHaveTitle() - checks if the page title matches the expected title.
+
+4. Snapshot Assertions. --> Visual Regression testing
+Assertions comparing two visual elments from the UI particular
+
+5. API refernce Assertions. --> REST API 
+Assertions used check your API reponses 
+
+
+Based on Functionality 
+--------------------
+
+1. Auto retry assertion.
+2. Non-retry assetion.
+
+
+Hard Assertion.--> It will abruptly stop your execution.
+Soft Assertion. --> Informing that he assertion has failed and it will not stop execution it will move to next  part of execution.
+
+
+
+
+Negating matchers
+
+In general, we can expect the opposite to be true by adding a .not to the front of the matchers:
+
+expect(value).not.toEqual(0);
+await expect(locator).not.toContainText('some text');
+
+
+
+
+
+
+Ways of handling dropdown:
+----------------------------
+
+| Method     | Stability | Readability | Use When...                         |
+| ---------- | --------- | ----------- | ----------------------------------- |
+| By value |   High    |   Low       | Most reliable, backend-driven IDs   |
+| By label |   Medium  |   High      | UI is stable or for quick checks    |
+| By index |   Low     |   Low       | Only if no other way /staticorder |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Maximize Screen size in chromium : 
+--------------------------------
+
+  {
+      name: 'chromium',
+      use: { browserName:"chromium", 
+        viewport:null, // disable the deafult 1280x720
+        launchOptions:{
+          args:['--start-maximized'],
+        },
+      },
+    }, 
+
+
+
+Maximize Screen size in firefox : 
+--------------------------------
+
+     {
+      name: 'firefox',
+      use: { browserName:"firefox", 
+        viewport:{ width: 1920, height: 1080 }, // disable the deafult 1280x720
+        launchOptions:{
+          args:['--start-maximized'],
+        }
+}
+}
