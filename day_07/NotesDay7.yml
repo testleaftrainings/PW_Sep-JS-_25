@@ -1,0 +1,194 @@
+📑 Agenda for Week 4 Day 1: TypeScript Fundamentals
+🎯 [ Focus: Mastering the basics of TypeScript with a foundation in JavaScript concepts ]  
+
+📆 Date: 04 October [Saturday]
+
+🕝 Session Highlights
+
+Recap
+   - Key Takeaways from Week3. 
+
+1. Understanding Arrays in JavaScript  
+* Basics of Arrays: What and Why?  
+* Common Methods and Operations on Arrays.  
+
+-->Classroom Activity in Arrays
+
+2. Playwright's getBy Locators
+* Explore getByText, getByRole, getByLabel, and more.  
+* Accessibility-first Automation with getBy Methods.  
+* Real-time Activity: Automating a Login Form. 
+
+3. Introduction to TypeScript
+* What is TypeScript, and Why Use It?  
+* Setting Up a TypeScript Environment.  
+* Basic Syntax and First TypeScript Program.  
+
+4. TypeScript Types  
+* Overview of Types in TypeScript:  
+* Hands-on: Declaring Variables with Different Types.  
+
+5. Explicit Types & Annotations 
+* Why Use Type Annotations?  
+* Explicitly Defining Function Parameters and Return Types.  
+* Examples:  
+     * Type Inference vs. Explicit Types. 
+
+--> Breakout session Handson on TypeScript basics. 
+
+6. Type Aliases  
+* What are Type Aliases and why use them?  
+* Syntax and examples.   
+
+7. Object Literals  
+* Defining and using object types in TypeScript.  
+
+8. Type Assertion  
+* What is Type Assertion?  
+* Examples: Converting unknown types.  
+  
+9. Enums  
+* Understanding Enums: Numeric and String Enums.  
+
+-->Classroom activity on Enums
+
+
+
+🕡 Wrap Up / Q&A
+
+📝 Keep your physical notebook and pen handy to sketch out ideas!
+
+
+Arrays in JavaScript :
+----------------------
+
+
+Arrays :
+--------
+1. Dynamic size
+2. Heterogenous elements.
+
+--------------------------
+
+Sort Method internal mechanism:
+-------------------------------
+
+let numberArray = [10, 8, 9, 7];
+numberArray.sort((a, b) => a - b);
+
+
+### 🟢 Step 1: Initial Array
+
+[10, 8, 9, 7]
+---
+
+### 🟢 Step 2: First Comparisons
+
+1. Compare **10 and 8**
+
+   * a = 10, b = 8 → `10 - 8 = 2` (positive)
+   * Swap → `[8, 10, 9, 7]`
+
+2. Compare **10 and 9**
+
+   * a = 10, b = 9 → `10 - 9 = 1` (positive)
+   * Swap → `[8, 9, 10, 7]`
+
+3. Compare **10 and 7**
+
+   * a = 10, b = 7 → `10 - 7 = 3` (positive)
+   * Swap → `[8, 9, 7, 10]`
+
+---
+
+### 🟢 Step 3: Next Pass
+
+1. Compare **8 and 9**
+
+   * a = 8, b = 9 → `8 - 9 = -1` (negative)
+   * Keep order → `[8, 9, 7, 10]`
+
+2. Compare **9 and 7**
+
+   * a = 9, b = 7 → `9 - 7 = 2` (positive)
+   * Swap → `[8, 7, 9, 10]`
+
+---
+
+### 🟢 Step 4: Another Pass
+
+1. Compare **8 and 7**
+
+   * a = 8, b = 7 → `8 - 7 = 1` (positive)
+   * Swap → `[7, 8, 9, 10]`
+
+Now everything is in order 
+
+---
+
+### Final Sorted Array
+
+[7, 8, 9, 10]
+
+---
+
+Quick Recap:
+
+* `a` and `b` are just **two numbers being compared**.
+* The compare function `(a - b)` tells JavaScript whether to swap them.
+
+
+TypeScript introduction :
+-------------------------
+
+TypeScript Installation commands:
+---------------------------------
+
+1. npm install typescript
+
+2. Check : tsc --version
+
+------------------------------------------------
+
+Note if you want directly run the .ts file follow below steps :
+--------------------------------------------------------------
+
+1. npm install -g ts-node
+
+2. npx tsc --init --> This will create a default tsconfig.json
+
+3. Make below changes in the tsconfig.json
+{
+  "compilerOptions": {
+    "module": "CommonJS"
+  }
+}
+4. Now execute the file directly using the below command
+
+ ts-node filename.ts
+
+ Classroom activity on union type :
+ ------------------------------------
+
+- Create a function that accepts only specific payment methods.
+
+- Create a type alias called PaymentMethod that allows only "UPI", "CreditCard", or "PayPal".
+
+- Write a function makePayment that takes a parameter of type PaymentMethod and prints which payment method is chosen.
+
+- Call the function with "UPI" and "CreditCard" as arguments.
+
+-------------------------------------------------------------------------------------------------------
+
+enum:
+-----
+- Enums are a way to define a set of named constants, making your code more readable and maintainable.
+
+
+Think of enum like a menu in a restaurant:
+
+Instead of customers shouting random dish names, they choose from the menu (fixed options).
+
+The menu items are the named constants (e.g., Menu.Pizza, Menu.Burger).
+
+You can’t order something not on the menu (compiler error).
