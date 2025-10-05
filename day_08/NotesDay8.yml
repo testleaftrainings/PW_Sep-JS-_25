@@ -1,0 +1,118 @@
+📑 Agenda for Week 4 Day 2: TypeScript and Playwright Key Features  
+🎯 [Focus: Deep Dive into TypeScript’s Advanced Features and Playwright Features] 
+
+📆 Date: 05 October [Sunday]
+
+1. Type Aliases  
+* What are Type Aliases and why use them?  
+* Syntax and examples. 
+
+--> Breakout session Handson on Union type. 
+
+2. Object Literals  
+* Defining and using object types in TypeScript.  
+
+3. Type Assertion  
+* What is Type Assertion?  
+* Examples: Converting unknown types.  
+  
+4. Enums  
+* Understanding Enums: Numeric and String Enums.  
+
+-->Classroom activity on Enums
+
+Playwright Feature:
+--------------------
+5. Interaction with Frames
+* Understanding the concept of iframes in web applications.  
+* Navigating into and interacting with elements inside frames.
+
+-->Classroom activity on frames.
+
+----------------------------------------
+
+Notes for Day 8 -
+
+
+ Classroom activity on union type :
+ ------------------------------------
+
+- Create a function that accepts only specific payment methods.
+
+- Create a type alias called PaymentMethod that allows only "UPI", "CreditCard", or "PayPal".
+
+- Write a function makePayment that takes a parameter of type PaymentMethod and prints which payment method is chosen.
+
+- Call the function with "UPI" and "CreditCard" as arguments.
+
+-------------------------------------------------------------------------------------------------------
+
+enum:
+-----
+- Enums are a way to define a set of named constants, making your code more readable and maintainable.
+
+
+Think of enum like a menu in a restaurant:
+
+Instead of customers shouting random dish names, they choose from the menu (fixed options).
+
+The menu items are the named constants (e.g., Menu.Pizza, Menu.Burger).
+
+You can’t order something not on the menu (compiler error).
+
+
+Playwright Features:
+--------------------
+
+1.Frames :
+-------
+
+Definition: An HTML document embedded inside another document using an <iframe> tag. Playwright allows direct interaction with elements inside frames.
+
+Usage: Useful for automating pages that load content inside frames or nested frames.
+
+Syntax:
+
+page.frames()-> frames() method helps to get the collection of frames that is present in a webpage.
+
+page.frameLocator(selector) → Locates elements inside a frame (recommended).
+
+page.frame({ name | url | index }) → Gets the frame object to interact with.
+
+
+
+
+Reason for the difference in frames shown in DevTools vs Playwright:
+--------------------------------------------------------------------
+
+DevTools shows all DOM iframes (even hidden, detached, ad trackers).
+
+Playwright only shows active, attached frames that the browser can script against.
+
+Below code you can get the frames present in DOM :
+
+import { test } from "@playwright/test";
+
+test("Compare iframe count - DOM vs Playwright", async ({ page }) => {
+  await page.goto("https://www.oneindia.com/");
+
+  // wait for ads & trackers to load
+  await page.waitForTimeout(5000);
+
+  // 1. Count iframes using DOM query (same as DevTools)
+  const domIframes = await page.evaluate(() => {
+    return document.querySelectorAll("iframe").length;
+  });
+
+  // 2. Count frames using Playwright API
+  const pwFrames = page.frames();
+
+  console.log("DOM iframes (DevTools style):", domIframes);
+  console.log("Playwright frames (API style):", pwFrames.length);
+
+  // Print first few frame URLs
+  console.log("\n--- Playwright Frames ---");
+  pwFrames.slice(0, 10).forEach((frame, idx) => {
+    console.log(idx + 1, ":", frame.url());
+  });
+});

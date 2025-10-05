@@ -1,0 +1,34 @@
+// enum TestResults {
+// Pass=1,// 0
+// Fail, // 1
+// Skip//2
+// }
+// function logTestResult(testName:string,result1:TestResults){
+//     console.log(`Test:${testName}`,`Result Code: ${result1}`); 
+// }
+// logTestResult("Login Page", TestResults.Pass)
+//String enum
+// enum BrowserType {
+// Chrome = "chrome",
+// Firefox="firefox",
+// Edge="msedge"
+// }
+// function launchBrowser(browserEngine:BrowserType) {
+//     console.log(`Launch browser using ${browserEngine}`);
+// }
+// launchBrowser(BrowserType.Edge) // msedge
+// launchBrowser(BrowserType.Chrome) // msedge
+//Heterogenous enum
+var BrowserStatus;
+(function (BrowserStatus) {
+    BrowserStatus[BrowserStatus["Open"] = 0] = "Open";
+    BrowserStatus[BrowserStatus["Incognito"] = 1] = "Incognito";
+    BrowserStatus["Crash"] = "crashed";
+    BrowserStatus[BrowserStatus["Close"] = 2] = "Close";
+})(BrowserStatus || (BrowserStatus = {}));
+function reportBrowserStatus(status) {
+    console.log("Current status of browser is  ".concat(status));
+}
+reportBrowserStatus(BrowserStatus.Open); // 1
+reportBrowserStatus(BrowserStatus.Crash); // crashed
+reportBrowserStatus(BrowserStatus.Close); // Close
