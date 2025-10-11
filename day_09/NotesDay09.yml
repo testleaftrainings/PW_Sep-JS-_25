@@ -1,0 +1,106 @@
+📑 Agenda for Week 5 Day 1: Handling Frames, Alerts & Windows
+
+🎯 [Focus: Understanding to interact with frames, alerts and windows]  
+
+📆 Date: 11 October [Saturday]  
+
+🕝 Session Highlights
+
+⿡ Recap
+* Quick review of key learnings from previous sessions.  
+
+⿣ Interaction with Frames
+* Understanding the concept of iframes in web applications.  
+* Navigating into and interacting with elements inside frames.
+
+⿢ Alerts Handling
+* Understanding Playwright’s support for JavaScript alerts, prompts, and confirmations.  
+* Automating acceptance or dismissal of alerts.  
+
+⿣ Handling Multiple Windows / Tabs  
+* Managing multiple windows or tabs in Playwright.  
+* Switching between windows and tabs efficiently.  
+
+
+🕡 Wrap Up / Q&A  
+
+📝 Keep your physical notebook and pen handy to sketch out ideas!
+
+Frames :
+-------
+
+Definition: An HTML document embedded inside another document using an <iframe> tag. Playwright allows direct interaction with elements inside frames.
+
+Usage: Useful for automating pages that load content inside frames or nested frames.
+
+Syntax:
+
+page.frames()-> frames() method helps to get the collection of frames that is present in a webpage.
+
+page.frameLocator(selector) → Locates elements inside a frame (recommended).
+
+page.frame({ name | url | index }) → Gets the frame object to interact with.
+
+
+Alerts /Dialogs:
+---------------
+
+Definition: Browser pop-ups such as alert, confirm, prompt, or beforeunload triggered by JavaScript.
+
+Usage: Intercept and handle dialog events to read their message and accept or dismiss them.
+
+Syntax:
+
+page.on('dialog', async dialog => { ... }) → Listen and handle.
+
+await dialog.accept([promptText]) → Accept dialog (optionally providing input for prompts).
+
+await dialog.dismiss() → Cancel dialog.
+
+Event Listeners
+--------------
+Definition: You subscribe to an event via Playwright's event emitter system.
+
+Usage: Allows multiple listeners for the same event. No overwriting — all registered callbacks run.
+
+Syntax: page.on(eventName, callback) or page.once(eventName, callback)
+
+
+Window Handling
+-------------
+
+Definition: Managing new tabs or browser windows opened by the application (via window.open or links with target="_blank).
+
+Usage: Capture and control multiple pages in the same browser context.
+
+Types:
+
+Sequential Approach
+------------------
+
+Wait for the new page after the action that opens it.
+
+await actionThatOpensNewPage();
+const newPage = await context.waitForEvent('page');
+
+
+**Simpler but may risk missing the event if the page opens too quickly.
+
+Concurrent Approach (Recommended)
+-------------------
+
+Wait for the new page and trigger the action at the same time.
+
+
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  actionThatOpensNewPage()
+]);
+
+**Ensures you never miss the page event.
+
+Switch between pages using:
+--------------------------
+
+context.pages();       // Returns all open pages in the context
+newPage.bringToFront(); // Focus a specific page
