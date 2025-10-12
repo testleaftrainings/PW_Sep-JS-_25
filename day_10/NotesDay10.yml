@@ -1,0 +1,194 @@
+📑 *Agenda for Week 5 Day 2: Advanced Playwright Interactions*
+
+🎯 *[ Focus: Handling real-world user interactions like windows, files, and data-driven testing ]*
+
+📆 *Date:* 12 October[Sunday]  
+
+🕝 *Session Highlights*
+
+1. *Window Handling*  
+* Understanding multiple browser contexts and tabs/windows.  
+* Switching between windows and handling pop-ups.  
+* Real-time examples: Flipkart product page.
+
+2. *File Upload*  
+* Uploading files using file input elements.  
+* Working with drag-and-drop style uploads.  
+* Example: Automating resume uploads in job portals.
+
+3. *File Download*  
+* Automating file download process in Playwright.  
+* Setting download paths and verifying file content.  
+
+4. *Reading JSON Files*  
+* Importing and parsing JSON test data.   
+* Best practices for maintaining test data files.
+
+5. *Reading CSV and JSON Files*  
+* Importing and parsing CSV/JSON test data.   
+* Best practices for maintaining test data files.
+
+6. *Reading ENV Files*  
+* Importing and parsing ENV test data.   
+* Best practices for maintaining test data files. 
+
+
+Window Handling
+-------------
+
+Definition: Managing new tabs or browser windows opened by the application (via window.open or links with target="_blank).
+
+Usage: Capture and control multiple pages in the same browser context.
+
+Types:
+
+Sequential Approach
+------------------
+
+Wait for the new page after the action that opens it.
+
+await actionThatOpensNewPage();
+const newPage = await context.waitForEvent('page');
+
+
+**Simpler but may risk missing the event if the page opens too quickly.
+
+Concurrent Approach (Recommended)
+-------------------
+
+Wait for the new page and trigger the action at the same time.
+
+
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  actionThatOpensNewPage()
+]);
+
+**Ensures you never miss the page event.
+
+Switch between pages using:
+--------------------------
+
+context.pages();       // Returns all open pages in the context
+newPage.bringToFront(); // Focus a specific page
+
+
+*****************************************************************************************
+
+
+# File Upload
+--------------
+
+### **Definition**
+
+Uploading files into a web application using Playwright.
+Playwright simulates attaching files to `<input type="file">` elements or drag-and-drop areas.
+
+---
+
+### **When `type="file"` is Present**
+
+Directly set the file(s) to the input element.
+
+const fileInput = page.locator('input[type="file"]');
+await fileInput.setInputFiles('tests/data/sample.pdf');
+
+* **Multiple Files:**
+
+await fileInput.setInputFiles(['file1.png', 'file2.png']);
+
+---
+
+### **When `type="file"` is Not Present (Custom Upload UI)**
+
+Some apps hide the `<input>` or use a styled button (drag-drop zones).
+Steps:
+
+1. Inspect and find the hidden file input.
+2. Use `setInputFiles` on that hidden element.
+
+
+const hiddenInput = page.locator('#hidden-file-input');
+await hiddenInput.setInputFiles('tests/data/sample.pdf');
+
+
+If the input is not accessible at all → Workaround is to use OS-level automation (not Playwright’s scope).
+
+---
+
+# File Download
+----------------
+
+### **Definition**
+
+Handling files downloaded by the application (clicking "Download" links/buttons).
+
+---
+
+### **Usage**
+
+Playwright provides a `page.waitForEvent('download')` listener.
+
+
+const [download] = await Promise.all([
+  page.waitForEvent('download'),      // Wait for download event
+  page.click('text=Download Report')  // Trigger download
+]);
+
+// Save to desired path
+await download.saveAs('downloads/report.pdf');
+
+// Get file path in temp location
+console.log(await download.path());
+
+
+**Notes:**
+
+* Default: Playwright saves downloads in a temporary directory.
+* Always use `Promise.all` to avoid missing the download event.
+
+--------------------------------------------------------------------
+
+
+
+# Data Parameterization with JSON
+
+---
+
+### **Definition**
+
+Feeding test data from external JSON files instead of hardcoding values.
+Useful for **data-driven testing**.
+
+# Data Parameterization with CSV
+---
+### **Definition**
+
+Reading test data from CSV files and running tests with multiple data sets.
+CSV is widely used in organizations for bulk test data (rows = test cases, columns = input fields).
+
+Usage
+1. Sample CSV (testData.csv):
+username,password
+testuser,pass123
+wrong,123
+admin,admin@123
+
+Step 1:
+Install csv : command - npm install csv-parse
+
+Step 2:
+create a .csv file under Data folder
+
+Step3 :
+
+Create a .spec.ts and parse data from csv file similar to the sample script.
+
+
+# Data Parameterization with ENV
+---
+### **Definition**
+
+A .env file (short for environment file) is a simple text file used to store environment variables in the form of key-value pairs.
+
+It is commonly used in projects to separate configuration data (like URLs, API keys, database credentials, secrets) from the actual application code.
