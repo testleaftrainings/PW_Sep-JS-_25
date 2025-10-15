@@ -1,0 +1,39 @@
+import { test } from "@playwright/test";
+
+test(`Test to interact with the frames using URL`, async({page})=>{
+
+    await page.goto(`https://leafground.com/frame.xhtml`)
+
+    //Interact with the frames using URL:
+
+//     const frameURL = page.frame({url:"https://leafground.com/framebutton.xhtml"}) // first frame
+
+//    await frameURL?.locator("#Click").click()  // ?.--> optional chaining to handle the exceptions while yout frame is not present at the time of interaction
+   
+   /* Internally:
+   if(frame){
+   await frame.locator("#Click").click()
+   else{
+    console.log("Frame not found")}
+} */
+
+    const frameName = page.frame({name:"frame2"}) // Third frame
+
+   await frameName?.locator("#Click").click()  // ?.--> optional chaining to handle the exceptions while yout frame is not present at the time of interaction
+   
+await page.waitForTimeout(3000)
+})
+
+
+test.only(`Test to interact with the frames using framelocator`,async ({page}) => {
+
+    await page.goto(`https://leafground.com/frame.xhtml`);
+
+    //Using frame locator
+   const frameLoc = page.frameLocator(`iframe[src='default.xhtml']`) ;
+   const clickButton = frameLoc.locator("#Click");
+   await clickButton.click()
+
+
+await page.waitForTimeout(3000)
+})
