@@ -1,0 +1,87 @@
+📑 Agenda for Week 6 Day 2: Advanced Playwright Interactions
+🎯 Focus: Exploring Advanced Features for Enhanced Playwright Automation
+
+📆 Date: 19 Oct. [Sunday]
+
+1. Hooks Test Annotation
+* Different test annotation used as part of testcase execution.
+
+2. Test Annotations
+* Enhancing test readability and control using annotations.
+* Examples: Skipping, focusing, or tagging specific tests.
+
+3. Storage State (Skip Login)  
+* Utilizing storage state to bypass login during test execution.  
+* Practical examples: Reducing redundant authentication steps. 
+
+4.  Persistent Context (Non-incognito mode)
+* Maintaining login/session state across test runs using user data directories.
+* Real-world example: Avoid repeated logins for authenticated flows.
+
+5. Visual Regression Testing
+* Capturing and comparing UI snapshots to detect unintended changes.
+* Use cases: Ensuring consistent UI across versions and devices.
+
+6.  Geolocation
+* Simulating geolocation data for location-based testing.
+* Practical use cases: Testing location-restricted functionalities.
+
+6. Device Emulation
+* Emulating various devices and screen resolutions in Playwright.
+* Practical examples: Testing responsive designs and mobile-specific features.
+
+7. Codegen (Code Generation)
+* Auto-generating Playwright scripts by recording user interactions.
+* Benefits: Faster test creation and onboarding for beginners.
+
+
+# Test Annotation :
+---
+
+--> Control the behaviour of the execution.
+
+hooks -> The execution flow before and after the actual test execution.
+------
+test.beforeAll --> before all test it will be executed
+test.beforeEach --> before each test it will be executed
+test.afterEach -->  after each test it will be executed
+test.afterAll --> after all test it will be executed
+
+Other Test Annotation
+---
+
+test.only --> focus on a specific test.
+test.skip --> ignore the test from execution
+test.fixme --> track and know failures that are yet tp be fixed
+test.fail --> for negative testing --> test has to fail is the expectation
+test.slow --> double the timeout of the tests execution --> 30 s --> 60 s for the entire test execution
+test.describe --> grouping the test depending on the status of the other test.
+test.use -->use the functionalities
+
+
+
+
+
+
+
+//purpose of storage state :
+//1. Maintain login/session state across test runs.
+//2. Real-world example: Avoid repeated logins for authenticated flows.
+//3. Useful for debugging with consistent state across sessions.
+//4. Store user preferences and settings persistently.
+
+
+//Purpose of persistent context :  
+//1. Maintain login/session state across test runs.
+//2. Real-world example: Avoid repeated logins for authenticated flows.
+//3. Useful for debugging with consistent state across sessions.
+//4. Store user preferences and settings persistently.
+
+
+npm uninstall xlsx
+
+npm install xlsx-js-style
+
+This should be in your code :
+
+import XLSX from "xlsx-js-style"
