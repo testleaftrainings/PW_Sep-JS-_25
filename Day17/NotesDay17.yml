@@ -1,0 +1,88 @@
+📑 Agenda for Week 5 Day 1: Advanced Data Parameterization 
+
+🎯 [Focus: Advanced Data Parameterization.  
+
+📆 Date: 23 September [Thursday]  
+
+🕝 Session Highlights
+
+⿡ Recap
+* Quick review of key learnings from previous sessions. 
+
+1. *Reading JSON Files*  
+* Importing and parsing JSON test data.   
+* Best practices for maintaining test data files.
+
+2. *Reading CSV and JSON Files*  
+* Importing and parsing CSV/JSON test data.   
+* Best practices for maintaining test data files.
+
+🕡 Wrap Up / Q&A  
+
+📝 Keep your physical notebook and pen handy to sketch out ideas!
+
+
+# Data Parameterization with JSON
+
+---
+
+### **Definition**
+JSON --> JavaScript Object Notation.
+
+Feeding test data from external JSON files instead of hardcoding values.
+Useful for **data-driven testing**.
+
+Usage
+1. Sample JSON (testData.json):
+[
+  {
+    "TcaseId": "TC001",
+    "Username": "demoSalesManager",
+    "Password": "crmsfa"
+  },
+  { 
+    "TcaseId": "TC002",
+    "Username": "demoCSR",
+    "Password": "crmsfa"
+  } 
+]
+
+Step 1:
+Create a .json file under Data folder and input some data in JSON format.
+Step 2:
+Create a .spec.ts and import data from json file similar to the sample script.
+Step 3:
+Use the imported data in your test cases for validation.    
+Step 4:
+Run the test to see data-driven testing in action. 
+
+
+# Data Parameterization with CSV
+---
+### **Definition**
+CSV --> Comma Seperated Values.
+
+Reading test data from CSV files and running tests with multiple data sets.
+CSV is widely used in organizations for bulk test data (rows = test cases, columns = input fields).
+
+Usage
+1. Sample CSV (testData.csv):
+
+tcid,username,password
+1,demoSalesManager,crmsfa
+2,demoCSR,crmsfa
+
+Step 1:
+Install csv : command - npm install csv-parse.
+
+Step 2:
+Create a .csv file under Data folder.
+
+Step 3:
+Create a .spec.ts and import data from csv file similar to the sample script.
+
+Step 3:
+Use the imported data in your test cases for validation.  
+
+Step 4:
+Run the test to see data-driven testing in action.

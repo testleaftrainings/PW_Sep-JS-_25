@@ -1,0 +1,37 @@
+### Code:
+
+```ts
+import { parse } from "csv-parse/sync";
+import fs from "fs";
+
+let records: any[] = parse(fs.readFileSync("Data/login.csv"), { columns: true, skip_empty_lines: true } );
+```
+
+---
+
+### 💡 Explanation:
+
+1. **`import { parse } from "csv-parse/sync";`**
+   → Brings in the `parse` function that helps convert CSV data into JavaScript objects.
+
+2. **`import fs from "fs";`**
+   → Imports Node’s file system module to read files from your computer.
+
+3. **`fs.readFileSync("Data/login.csv")`**
+   → Reads the CSV file from the “Data” folder.
+
+4. **`parse(..., { columns: true, skip_empty_lines: true })`**
+   → Converts the CSV content into an array of objects.
+
+   * `columns: true` → Uses the first row as column names.
+   * `skip_empty_lines: true` → Ignores blank lines.
+
+5. **`records`**
+   → Holds all the data from the CSV file, for example:
+
+   ```js
+   [
+     { username: "demoSalesManager", password: "crmsfa" },
+     { username: "demoCSR", password: "crmsfa" }
+   ]
+   ```
