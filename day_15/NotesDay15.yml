@@ -1,0 +1,161 @@
+📑 **Agenda for Week 7 Day 1: OOPs in TypeScript
+
+🎯 [Focus: Mastering Object-Oriented Programming Concepts in TypeScript]
+
+📆 [30th Aug Saturday]
+
+🕝 Session Highlights
+
+⿡ Recap
+Quick review of previous learnings.
+
+⿢ Class & Objects
+
+Understanding the basics of classes and objects in TypeScript.
+Examples: Creating and using classes and objects.
+
+⿣ Constructors
+
+Role of constructors in initializing objects.
+Examples: Using parameterized and default constructors.
+
+⿤ Access Modifiers
+
+Understanding public, private, and protected access modifiers.
+Examples: Controlling access to class properties and methods.
+
+⿥ Inheritance
+
+Exploring the concept of inheritance for code reuse.
+Examples: Implementing single and multilevel inheritance.
+
+🕡 Wrap Up / Q&A
+
+📝 Keep your physical notebook and pen handy to sketch out ideas and test workflows!
+
+
+Agenda :
+
+1. Class and Object.
+2. Method and properties.
+3. Constructor.
+4. Accessmodifiers.
+5. Polymorphism.
+6. Inheritance.
+
+
+class:
+Design/ template to build object.
+
+property :Informartion of thst particular page
+
+method : action performed on that page.
+
+
+class CarInnova {
+//properties:Informartion of thst particular page
+properties : string
+
+//methods:action performed on that page.
+method(){
+properties
+}
+}
+
+let variableNameFeature1 = new CarInnova() // Object creation //variableNameFeature1 is the object
+
+
+AccessModifiers:
+---------------
+
+1. public : can be accessed inside and outside of the class
+2. protected: can be accessed inside the class as well as the related class --> relationship--> inherit
+3. private: not accessible outisde the class --> give permission to access or to rewrite "get" and "set"
+
+4. readonly: constant/final --> cannot change the assigned value
+5. static: belongs to the class rather than the object
+
+Method Overloading :
+------------------
+
+Method overloading is a feature that allows a class to have more than one method with the same name, but different parameters (different type or number of parameters).
+
+Method Overriding :
+
+Method overriding is a feature that allows a subclass or child class to provide a specific implementation of a method that is already defined in its superclass or parent class.
+
+
+Inheritance :
+--------------
+
+1. Single Inheritance :
+
+classA{}
+classB extends A{}
+
+2. Multilevel Inheritance :
+
+class A{}
+
+class B extends A{}
+class C extends B{}
+
+3. Hierarchical inheritance 
+
+class A{}
+
+class B extends A{}
+class C extends A{}
+
+4. Hybrid Inheritance
+
+A combination of two or more types of inheritnace (e.x : multilevel and Hierarchical)
+
+
+5. Multiple Inheritance
+Typescript does not support multiple inheritnace using classes.
+Can be achieved through interface.
+
+
+
+faker library installation :
+
+npm install @faker-js/faker
+
+
+Trouble shooting :
+
+If you get error like below :
+
+Property 'empName' has no initializer and is not definitely assigned in the constructor
+
+Install tsconfig package:
+
+npm install typescript --save-dev 
+
+or
+
+npx tsc --init
+
+Then make chages in tsconfig.json file or initial the value to ""
+
+To :     "strictPropertyInitialization": false,
+
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020", "DOM"],
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "types": ["node", "playwright"]
+  },
+  "include": ["tests", "**/*.ts"],
+  "exclude": ["node_modules", "playwright-report", "test-results", "dist"]
+}
