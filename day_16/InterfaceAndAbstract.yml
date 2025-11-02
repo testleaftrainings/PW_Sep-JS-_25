@@ -1,0 +1,98 @@
+##  **Franchise Business Analogy for Abstract Class & Interface**
+
+Imagine your brand runs on franchise model.
+
+Have multiple franchise outlets — Chennai, Bangalore, Delhi —
+each owned by local managers but following brand rules.
+
+---
+
+### 🧩 **1️⃣ Interface → The Brand Rulebook 📘**
+
+The **Head Office** gives a **franchise agreement** (rulebook).
+It says:
+
+> “Every outlet **must** have these things:
+>
+> * a `makeBurger()` method 
+> * a `serveCustomer()` method 
+> * a `generateBill()` method ”
+
+But it doesn’t say **how** to make or serve —
+that’s up to each outlet!
+
+---
+
+#### 💻 **In Playwright:**
+
+```ts
+export interface IFranchiseRules {
+  makeBurger(): void;
+  serveCustomer(): void;
+  generateBill(): void;
+}
+```
+
+✅ **Purpose:**
+
+* Ensures every outlet (page class) follows the **same structure**.
+* The brand (framework) can rely on these methods being available everywhere.
+
+---
+
+### 🧩 **2️⃣ Abstract Class → The Brand Template 🏗️**
+
+The head office also provides a **Base Setup** —
+it already includes common facilities:
+
+* Kitchen setup 
+* Billing counter 
+* Cleaning schedule 
+
+But they say:
+
+> “You must define your own menu and customer experience.”
+
+So the **BaseFranchise** (abstract class) gives **common behavior** + **some parts to fill in**.
+
+---
+
+#### 💻 **In Playwright:**
+
+
+✅ **Purpose:**
+
+* Gives common reusable actions (open, close).
+* Forces each child class (franchise outlet) to define its `menuItems()` (page-specific logic).
+
+---
+
+### 🧩 **3️⃣ Franchise Outlets → Page Classes 🏪**
+
+Now each outlet (franchise branch) **inherits** from the brand’s setup and **implements** the rules.
+
+
+✅ **Purpose:**
+
+* Follows both the **brand rulebook (interface)** and **base design (abstract class)**.
+* Still has its **own flavor** or customization.
+
+---
+
+##  **Summary Table**
+
+| Playwright Concept | Franchise Analogy                      | Purpose                                               |
+| ------------------ | -------------------------------------- | ----------------------------------------------------- |
+| **Interface**      | Brand Rulebook (Franchise Agreement)   | Defines what every outlet *must* do                   |
+| **Abstract Class** | Standard Setup (Base Franchise Design) | Provides shared setup + forces some customization     |
+| **Page Classes**   | Individual Franchise Outlets           | Implement their version of rules and add unique items |
+| **Spec File**      | Brand Auditor                          | Tests and verifies that rules are followed            |
+
+---
+
+### 💬 **In short:**
+
+> 🧩 **Interface** = “You must do these things.”
+> 🏗️ **Abstract Class** = “Here’s a base setup — complete your part.”
+> 🏪 **Page Class** = “My branch follows all brand rules, with my own twist.”
+> 🎬 **Spec File** = “Brand inspection test.”
