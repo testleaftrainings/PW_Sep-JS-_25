@@ -1,0 +1,48 @@
+
+// import{test}  from "@playwright/test";
+// import { ViewLeadPage } from "../pages/06-viewLead";
+// import LoginData from "../Data/login.json" 
+// import dotenv from 'dotenv'
+
+
+// dotenv.config({path:"Data/prod.env"})
+
+// test(`Login Verification`,async ({page}) => {
+
+//     const vp = new ViewLeadPage(page)
+
+//     await vp.loadurl(process.env.BaseUrl as string)
+//     await vp.enterCredentials(LoginData[0].Username,LoginData[0].Password);
+
+//     await vp.clickLogin()
+
+//     await vp.clickCRM()
+
+//     await vp.clickLead()
+
+//     await vp.clickCreateLead()
+
+//     await vp.enterMandatory()
+
+//     await vp.clickSubmit()
+
+//     await vp.verifyFirstName()
+//  })
+
+import {test} from "../utils/customfixture"
+
+test(`Create verification`,async({lop,vp,wp,hp,lp,clp})=>{
+
+ await lop.loadurl("http://leaftaps.com/opentaps/control/main")
+    await lop.enterCredentials("demoCSR","crmsfa")
+    await lop.clickLogin()
+
+    await wp.clickCRM()
+    await hp.clickLead()
+    await lp.clickCreateLead()
+    await clp.enterMandatory()
+    await clp.clickSubmit()
+    await vp.verifyFirstName()
+}
+
+)
