@@ -1,0 +1,79 @@
+📑 Agenda for Week 9 Day 1: POM and Plywright Advanced Features
+
+🎯 Focus: Mastering Object-Oriented Programming Concepts in TypeScript
+
+📆 08th Nov, Saturday
+
+🕝 Session Highlights
+
+⿡ Recap
+Quick review of previous learnings.
+
+1. Abstraction
+Using abstract classes and methods to define templates.
+Examples: Designing partially implemented base classes.
+
+2. Polymorphism
+Understanding method overriding and runtime behavior.
+Examples: Creating multiple forms of behavior from a single interface.
+
+3. Custom Fixture
+Creating reusable test setup using custom fixtures.
+Examples: Injecting test data, context, or utilities.
+
+4. Device Emulation
+Playwright allows testing on different devices by emulating their characteristics (e.g., screen size, user agent).
+
+Examples: Testing responsive designs on mobile and tablet viewports.
+
+5. Visual Testing
+Visual testing ensures the appearance of the UI remains consistent by comparing screenshots to baseline images. 
+This approach helps detect unintended layout changes, color shifts, or other visual regressions.
+
+6. Jira Integration
+Linking test results with Jira issues.
+Automating status updates and reporting.
+
+🕡 Wrap Up / Q\&A
+
+📝 Keep your physical notebook and pen handy to sketch out ideas and test workflows!
+
+
+1. Interface :
+-----------------
+
+- Complete hiding of the implemented.
+- 100% abstraction.
+- Only unimplemented methods.
+
+Summarize 
+
+- class extends another class
+- abstract extends another abstract class
+- interface extends another interface
+- class extends abstract class
+- class implements interface
+- class extends abstract class im plemnets interface
+
+We cannot see implementation of your page fixture, context browser in playwright everytging is put in as interface
+
+2. Abstraction
+----------------- 
+
+abstract class :
+
+- 0 to 100% abstraction.
+- Method signature --> unimplementedmethods
+- Implemented methods --> logic 
+
+
+Method Overloading :
+------------------
+
+Method overloading is a feature that allows a class to have more than one method with the same name, but different parameters (different type or number of parameters).
+
+Method Overriding :
+-------------------
+
+Method overriding is a feature that allows a subclass or child class to provide a specific implementation of a method that is already defined in its superclass or parent class.
+Examples: Creating multiple forms of behavior from a single interface.
