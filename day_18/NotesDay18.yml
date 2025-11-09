@@ -1,0 +1,41 @@
+📑 Agenda for Week 9 Day 2: Playwright Framework
+
+🎯 Focus: Understandingcore concepts of Playwright Framework
+
+📆 09th Nov, Sunday
+
+1. Device Emulation
+Playwright allows testing on different devices by emulating their characteristics (e.g., screen size, user agent).
+
+Examples: Testing responsive designs on mobile and tablet viewports.
+
+2. Visual Testing
+Visual testing ensures the appearance of the UI remains consistent by comparing screenshots to baseline images. 
+This approach helps detect unintended layout changes, color shifts, or other visual regressions.
+
+3. GitActions & CI Integration
+Setting up Playwright tests to run in Continuous Integration (CI) pipelines.
+
+Examples: Configuring GitHub Actions to execute tests on code commits and pull requests.
+
+4. MCP Server Integration
+Integrating Playwright tests with MCP (Model Context Protocol) server for enhanced test management and reporting.
+Examples: Uploading test results, managing test cases, and generating reports.
+
+7. Allure Reporting
+Generating detailed and visually appealing test reports using Allure framework.
+Examples: Configuring Allure to capture screenshots, logs, and test metadata.
+
+8. Playwright Framework Best Practices
+Discussing best practices for structuring and maintaining Playwright test suites.
+
+🕡 Wrap Up / Q&A
+
+
+
+
+
+https://forms.office.com/r/GDVrGCWCmF
+
+
+https://tinyurl.com/TestleafTrainerReviewRavindran

@@ -1,0 +1,12 @@
+Commands for Allure Reports:
+---------------------------
+in the configuration make below changes:
+reporter: [['html'], ['allure-playwright']],
+
+And execute below commands in the terminal :
+
+1. npm i -D allure-playwright
+
+2. npm i -g allure-commandline --save-dev
+
+3. allure serve
