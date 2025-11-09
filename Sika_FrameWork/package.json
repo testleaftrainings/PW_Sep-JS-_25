@@ -1,0 +1,35 @@
+{
+  "name": "playwright-cucumber-ts",
+  "version": "1.0.0",
+  "description": "Playwright Cucumber TypeScript Framework",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:chrome": "cucumber-js --profile chrome",
+    "test:firefox": "cucumber-js --profile firefox",
+    "test:webkit": "cucumber-js --profile webkit",
+    "test:msedge": "cucumber-js --profile msedge"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@cucumber/messages": "^21.0.0",
+    "@faker-js/faker": "^9.8.0",
+    "@playwright/test": "^1.30.0",
+    "allure-cucumberjs": "^2.9.2",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.0.3",
+    "exceljs": "^4.3.0",
+    "fs-extra": "^11.1.0",
+    "multiple-cucumber-html-reporter": "^3.4.0",
+    "typescript": "^4.9.5",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^18.13.0",
+    "chai": "^4.3.7",
+    "cucumber-html-reporter": "^6.0.0",
+    "cucumberjs-allure2-reporter": "^1.3.0",
+    "ts-node": "^10.9.1"
+  }
+}
